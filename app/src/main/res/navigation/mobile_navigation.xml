@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/ConstraintLayout">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.cbbaturismo.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_detailsFragment2"
+            app:destination="@id/detailsFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.cbbaturismo.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.cbbaturismo.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/ConstraintLayout"
+        android:name="com.example.cbbaturismo.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_ConstraintLayout_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_ConstraintLayout_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_ConstraintLayout_to_allMapsFragment2"
+            app:destination="@id/allMapsFragment2" />
+        <action
+            android:id="@+id/action_ConstraintLayout_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.cbbaturismo.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/detailsFragment2"
+        android:name="com.example.cbbaturismo.detailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/galleryItemsFragment"
+        android:name="com.example.cbbaturismo.detailFragment.GalleryItemsFragment"
+        android:label="fragment_gallery_items"
+        tools:layout="@layout/fragment_gallery_items" />
+    <fragment
+        android:id="@+id/fullImageFragment"
+        android:name="com.example.cbbaturismo.detailFragment.FullImageFragment"
+        android:label="fragment_full_image"
+        tools:layout="@layout/fragment_full_image" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.cbbaturismo.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/allMapsFragment2"
+        android:name="com.example.cbbaturismo.AllMapsFragment"
+        android:label="fragment_all_maps"
+        tools:layout="@layout/fragment_all_maps" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.cbbaturismo.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_verificationCodeFragment"
+            app:destination="@id/verificationCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragmentFragment"
+        android:name="com.example.cbbaturismo.RegisterFragmentFragment"
+        android:label="fragment_register_fragment"
+        tools:layout="@layout/fragment_register_fragment" >
+        <action
+            android:id="@+id/action_registerFragmentFragment_to_verificationCodeFragment"
+            app:destination="@id/verificationCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verificationCodeFragment"
+        android:name="com.example.cbbaturismo.VerificationCodeFragment"
+        android:label="fragment_verification_code"
+        tools:layout="@layout/fragment_verification_code" />
+    <fragment
+        android:id="@+id/searchMapFragment"
+        android:name="com.example.cbbaturismo.SearchMapFragment"
+        android:label="fragment_search_map"
+        tools:layout="@layout/fragment_search_map" />
+</navigation>

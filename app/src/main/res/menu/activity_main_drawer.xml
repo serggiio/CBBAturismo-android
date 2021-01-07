@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/ConstraintLayout"
+            android:icon="@drawable/ic_icon_home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/profileFragment"
+            android:icon="@drawable/ic_icon_profile"
+            android:title="@string/menu_profile" />
+        <item
+            android:id="@+id/favoriteFragment"
+            android:icon="@drawable/ic_icon_favorite"
+            android:title="@string/menu_favorite" />
+        <item
+            android:id="@+id/loginFragment"
+            android:icon="@drawable/ic_icon_login"
+            android:title="@string/menu_login" />
+        <item
+            android:id="@+id/registerFragmentFragment"
+            android:icon="@drawable/ic_icon_newuser"
+            android:title="@string/menu_register" />
+
+
+    </group>
+</menu>

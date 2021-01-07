@@ -1,0 +1,105 @@
+<resources>
+    <string name="app_name">CBBA turismo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Cochabamba Turistica</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_rate">My puntuación</string>
+
+    <!-- navigationDraver strings -->
+    <string name="menu_profile">Perfil</string>
+    <string name="menu_favorite">Favoritos</string>
+    <string name="menu_logout">Salir</string>
+    <string name="menu_login">Iniciar sesion</string>
+    <string name="menu_register">Registrate</string>
+    <string name="menu_share">Compartir</string>
+
+    <!-- Search form strings -->
+    <string name="typeString">Lugar / Evento</string>
+    <string name="provinceString">Provincia</string>
+    <string name="rateString">Puntuación: </string>
+    <string name="tagString">Tag</string>
+    <string name="startString">Desde</string>
+    <string name="endString">Hasta</string>
+    <string name="placeString">Nombre</string>
+
+    <string name="dialogGoTo">Visitar</string>
+
+    <!-- TOAST PERMISIONS MAP -->
+    <string name="location_permission_denied">PERMISO DENEGADO PAPU</string>
+    <string name="permission_required_toast">PERMISO REQUERIDO PAPS</string>
+    <string name="permission_rationale_location">permission_rationale_location</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Bienvenido!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="noData">"Nombre de usuario o contraseña invalidos"</string>
+    <string name="error">"Error interno, vuelva a intentarlo"</string>
+
+    <!-- Strings related to login -->
+    <string name="profileName">"Nombre"</string>
+    <string name="profileLastName">Apellido</string>
+    <string name="profileEmail">Correo</string>
+    <string name="profileStatus">Estado</string>
+    <string name="profilePassword">Contraseña</string>
+    <string name="profileShowPassword">Mostrar contraseña</string>
+    <string name="profileLogOutButton">Cerrar sesion</string>
+    <string name="profileSaveButton">Guardar</string>
+    <string name="profileEditButton">Editar</string>
+    <string name="profileUpdateSuccess">Informacion actualizada!</string>
+    <string name="profileUpdateFail">Se produjo un error, vuelva a intentarlo</string>
+    <string name="profileLogoutMessage">Sesion finalizada!</string>
+
+    <!-- Strings related register form validation -->
+    <string name="registerInvalidName">Campo nombre invalido </string>
+    <string name="registerInvalidLastName">Campo apellido invalido</string>
+    <string name="verificationInvalidCode">Codigo invalido</string>
+    <string name="registerInvalidEmail">Campo correo invalido</string>
+    <string name="registerInvalidPassword">Contraseña minimo 5 caracteres</string>
+    <string name="registerInvalidEmailResponse">El correo ya esta en uso</string>
+    <string name="registerVerificationCode">Codigo de verificación</string>
+    <string name="registerFinish">Codigo de verificación</string>
+
+
+    <string name="googleMapsKey">AIzaSyDC6NIJ5UkP3YUVWz9ICntSrqV3F-tUAlU</string>
+    <string name="distance">Distancia Km: </string>
+    <string name="searchMap">BUSCAR</string>
+    <string name="searchMapResult">Resultados: 0</string>
+    <string name="visitMap">Visitar</string>
+    <string name="routeMap">Ruta</string>
+
+    <string name="mapStyle"> [
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+] </string>
+
+
+</resources>
