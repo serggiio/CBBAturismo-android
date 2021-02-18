@@ -14,6 +14,7 @@ import com.example.cbbaturismo.detailFragment.TabImageFragment;
 import com.example.cbbaturismo.detailFragment.TabMapsFragment;
 import com.example.cbbaturismo.detailFragment.TabStartFragment;
 import com.example.cbbaturismo.detailFragment.TabVideoFragment;
+import com.example.cbbaturismo.detailFragment.TabCommentaryFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,14 +42,12 @@ public class tabAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0:
-                System.out.println("RETORNO EN START TAB"+ position);
                 try {
                     return new TabStartFragment(jsonData);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             case 1:
-                System.out.println("RETORNO EN MAP TAB"+ position);
                 /*Bundle args = new Bundle();
                 try {
                     args.putString("jsonData", jsonData.getJSONObject("data").toString());
@@ -66,7 +65,6 @@ public class tabAdapter extends FragmentPagerAdapter {
                 }
 
             case 2:
-                System.out.println("RETORNO EN IMAGE TAB"+ position);
                 Bundle args1 = new Bundle();
                 try {
                     args1.putString("jsonData", jsonData.getJSONObject("data").toString());
@@ -79,9 +77,17 @@ public class tabAdapter extends FragmentPagerAdapter {
                 return tabImage;
                 //return new TabVideoFragment();
 
-            /*case 3:
-                System.out.println("RETORNO EN VIDEO TAB"+ position);
-                return new TabVideoFragment();*/
+            case 3:
+                //System.out.println("RETORNO EN COMMENTARY TAB"+ position);
+                Bundle args2 = new Bundle();
+                try {
+                    args2.putString("jsonData", jsonData.getJSONObject("data").toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                TabCommentaryFragment tabCommentary = new TabCommentaryFragment();
+                tabCommentary.setArguments(args2);
+                return tabCommentary;
             default:
                 return null;
         }

@@ -121,8 +121,8 @@ public class RegisterFragmentFragment extends Fragment {
         if(validateResponse){
             Log.d(logRegister, "Register new user, call service: " );
 
-            //default invalid status 5 verification
-            saveObj.put("statusId", 5);
+            //default invalid status 4 verification
+            saveObj.put("statusId", 4);
             //default user value 2
             saveObj.put("typeId", 2);
             saveObj.put("name", String.valueOf(textName.getText()));

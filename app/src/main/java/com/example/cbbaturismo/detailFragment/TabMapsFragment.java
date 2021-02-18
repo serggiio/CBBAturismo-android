@@ -301,7 +301,7 @@ public class TabMapsFragment extends Fragment {
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         updateLocation(location);
         mainLocationManager = locationManager;
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 0, locListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100000000, 0, locListener);
     }
 
     public void controlPermissions(GoogleMap mMap){

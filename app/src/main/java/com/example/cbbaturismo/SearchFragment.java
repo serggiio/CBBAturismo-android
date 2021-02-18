@@ -64,14 +64,18 @@ public class SearchFragment extends Fragment {
     ImageButton imageButton;
     TextView rateText;
     List<String> listTag = new ArrayList <String>();
+    List<String> listCategory = new ArrayList <String>();
     List<String> listChips = new ArrayList <String>();
+    List<String> listCategories = new ArrayList <String>();
     JSONArray listTag1;
+    JSONArray listCategory1;
     JSONObject apiResponse;
     JSONObject searchRequest;
     JSONArray adapterObj;
     ListView searchList;
     ListView itemView;
     Spinner spinerTag;
+    Spinner spinerCategory;
     ChipGroup tagGroup;
     Chip chipSelected;
     Toolbar toolbar;
@@ -126,6 +130,7 @@ public class SearchFragment extends Fragment {
         searchList = (ListView) view.findViewById(R.id.searchList);
         itemView = (ListView) view.findViewById(R.id.searchList);
         spinerTag = (Spinner) view.findViewById(R.id.spinner);
+        spinerCategory = (Spinner) view.findViewById(R.id.spinnerCategory);
         tagGroup = view.findViewById(R.id.tagGroup);
         chipSelected = view.findViewById(R.id.chip);
 
@@ -136,19 +141,33 @@ public class SearchFragment extends Fragment {
         //listTag.add("Plazas");
 
         JSONObject tagResponse = null;
+        JSONObject categoryResponse = null;
         try {
             tagResponse = new JSONObject(apiUtil.getTagList(new JSONObject()));
             listTag1 = tagResponse.getJSONArray("data");
+
+            categoryResponse = new JSONObject(apiUtil.getCategoryList(new JSONObject()));
+            listCategory1 = categoryResponse.getJSONArray("data");
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         Log.d(logSearch, "API RESPONSE TAG " + tagResponse);
         Log.d(logSearch, "TAG LIST " + listTag1);
+        Log.d(logSearch, "CATEGORY LIST " + listCategory1);
 
         for (int i=0; i<listTag1.length(); i++) {
             try {
                 listTag.add( listTag1.getString(i) );
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        listCategory.add("");
+        for (int i=0; i<listCategory1.length(); i++) {
+            try {
+                listCategory.add( listCategory1.getString(i) );
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -159,6 +178,10 @@ public class SearchFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_spinner_dropdown_item, listTag);
         spinerTag.setAdapter(adapter);
+
+        ArrayAdapter<String> adapterCategory = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_dropdown_item, listCategory);
+        spinerCategory.setAdapter(adapterCategory);
 
 
 
@@ -203,6 +226,23 @@ public class SearchFragment extends Fragment {
 
                 Log.d(logSearch, "TAG ITEM " + tagGroup.getCheckedChipIds());
 
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        spinerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.d(logSearch, "CATEGORY ITEM " + listCategory.get(i));
+                if(!listCategory.get(i).equals("")){
+                    listCategories = new ArrayList <String>();
+                    listCategories.add(listCategory.get(i));
+                }
+                Log.d(logSearch, "CATEGORY ITEM2 " + listCategories);
             }
 
             @Override
@@ -261,6 +301,7 @@ public class SearchFragment extends Fragment {
                     touristicPlace.put("rate", rate.getRating());
                     //touristicPlace.put("tag", listTag);
                     touristicPlace.put("tag", listChips);
+                    touristicPlace.put("category", listCategories);
                     searchRequest.put("touristicPlace", touristicPlace);
 
                     //call service

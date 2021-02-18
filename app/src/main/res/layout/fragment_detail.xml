@@ -22,19 +22,25 @@
             android:id="@+id/tabStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Inicio" />
+            android:icon="@drawable/ic_icon_home"/>
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabMap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mapa" />
+            android:icon="@drawable/ic_baseline_map_24" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabGalleryImg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Imagenes" />
+            android:icon="@drawable/ic_menu_gallery"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabCommentary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_baseline_comment_24"/>
 
 
 

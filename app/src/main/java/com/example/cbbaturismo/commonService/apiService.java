@@ -54,6 +54,13 @@ public class apiService {
         return apiResponse;
     }
 
+    public String getCategoryList(JSONObject request) throws JSONException {
+        System.out.println("START categories data: " + request);
+        JSONObject params = request;
+        this.callService(constants.getTouristicPlaceCategories(), constants.postMethod, params);
+        return apiResponse;
+    }
+
     public String getFavoriteByUser(JSONObject request) throws JSONException {
         System.out.println("START tags data: " + request);
         JSONObject params = request;
@@ -119,6 +126,18 @@ public class apiService {
         test.put("result", requestUrl);
         //return String.valueOf(test);
         this.googleServices(requestUrl, constants.getMethod, request);
+        return apiResponse;
+    }
+
+    public String getCommentsByTouristicPlaceId(JSONObject request) throws JSONException {
+        System.out.println("START getCommentsByTouristicPlaceId : " + request);
+        this.callService(constants.getCommentsById(), constants.postMethod, request);
+        return apiResponse;
+    }
+
+    public String setCommentary(JSONObject request) throws JSONException {
+        System.out.println("START setCommentary : " + request);
+        this.callService(constants.modifyComments(), constants.postMethod, request);
         return apiResponse;
     }
 

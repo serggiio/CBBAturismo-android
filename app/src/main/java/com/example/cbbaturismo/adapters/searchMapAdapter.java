@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -63,50 +64,63 @@ public class searchMapAdapter extends RecyclerView.Adapter<searchMapAdapter.View
         try {
             rowData = jsonData.getJSONObject(position);
 
+            if(rowData.get("touristicPlaceId") == "no data"){
 
-            Picasso.get()
-                    .load(constants.getApiUrl()+"touristicPlace/mainImage/"+rowData.getInt("touristicPlaceId"))
-                    //.load(constants.getApiUrl()+ "touristicPlace/image")
-                    .placeholder(R.drawable.ic_menu_camera)
-                    .into(holder.mapImage);
+                holder.mapImage.setVisibility(View.GONE);
+                holder.mapName.setText("Fin de los resultados");
+                holder.mapDistance.setVisibility(View.GONE);
+                holder.btnVisit.setVisibility(View.GONE);
+                holder.btnRoute.setVisibility(View.GONE);
+                holder.ratingBar.setVisibility(View.GONE);
 
-            holder.mapName.setText(rowData.getString("placeName"));
-            holder.mapDistance.setText("Aproximado " + String.valueOf(rowData.getInt("distance")) + " m.");
+            }else{
+                Picasso.get()
+                        .load(constants.getApiUrl()+"touristicPlace/mainImage/"+rowData.getInt("touristicPlaceId"))
+                        //.load(constants.getApiUrl()+ "touristicPlace/image")
+                        .placeholder(R.drawable.ic_menu_camera)
+                        .into(holder.mapImage);
 
-            holder.btnVisit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Bundle param = new Bundle();
-                    try {
-                        Log.d(TAG, "click listener. "+ jsonData.getJSONObject(position));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                holder.mapName.setText(rowData.getString("placeName"));
+                holder.mapDistance.setText("Aproximado " + String.valueOf(rowData.getInt("distance")) + " m.");
+
+                holder.btnVisit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle param = new Bundle();
+                        try {
+                            Log.d(TAG, "click listener. "+ jsonData.getJSONObject(position));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            param.putInt("findId", jsonData.getJSONObject(position).getInt("touristicPlaceId"));
+                            param.putString("name", jsonData.getJSONObject(position).getString("placeName"));
+                            param.putInt("rate", jsonData.getJSONObject(position).getInt("rateAvg"));
+
+                            findNavController(view).navigate(R.id.detailFragment, param);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-                    try {
-                        param.putInt("findId", jsonData.getJSONObject(position).getInt("touristicPlaceId"));
-                        param.putString("name", jsonData.getJSONObject(position).getString("placeName"));
-                        param.putInt("rate", jsonData.getJSONObject(position).getInt("rateAvg"));
+                });
 
-                        findNavController(view).navigate(R.id.detailFragment, param);
+                holder.ratingBar.setProgress(rowData.getInt("rateAvg"));
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-
-            holder.btnRoute.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+                holder.btnRoute.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
                     /*try {
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }*///ESTABLECER DATO DE PREFERENCIA
 
-                    Log.d(TAG, "route listener. ");
-                }
-            });
+                        Log.d(TAG, "route listener. ");
+                    }
+                });
+            }
+
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -124,6 +138,7 @@ public class searchMapAdapter extends RecyclerView.Adapter<searchMapAdapter.View
         CircleImageView mapImage;
         TextView mapName, mapDistance;
         Button btnVisit, btnRoute;
+        RatingBar ratingBar;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -132,6 +147,7 @@ public class searchMapAdapter extends RecyclerView.Adapter<searchMapAdapter.View
             mapDistance = itemView.findViewById(R.id.searchMapDistance);
             btnVisit = itemView.findViewById(R.id.btnVisit);
             btnRoute = itemView.findViewById(R.id.btnRoute);
+            ratingBar = itemView.findViewById(R.id.ratingBarMap);
             //mapName = itemView.findViewById(R.id.)
 
         }

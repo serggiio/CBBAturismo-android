@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout16"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detailFragment.TabCommentaryFragment" >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/commentaryList"
+        android:layout_width="291dp"
+        android:layout_height="406dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.153" />
+
+    <EditText
+        android:id="@+id/editTextCommentaryText"
+        android:layout_width="343dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Escribe un comentario"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentaryList"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/sendCommentaryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_send_24"
+        app:layout_constraintStart_toEndOf="@+id/editTextCommentaryText"
+        app:layout_constraintTop_toBottomOf="@+id/commentaryList" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,9 @@ public class constantValues {
     private final String touristicPlaceTags = "touristicPlace/tags";
     public String getTouristicPlaceTags() {return touristicPlaceTags;}
 
+    private final String touristicPlaceCategories = "touristicPlace/categories";
+    public String getTouristicPlaceCategories() {return touristicPlaceCategories;}
+
     private final String touristicPlaceFavorite = "touristicPlace/checkFavorite";
     public String touristicPlaceFavorite() {return touristicPlaceFavorite;}
 
@@ -50,6 +53,12 @@ public class constantValues {
 
     private final String searchMap = "touristicPlace/searchByLocation";
     public String searchMap() {return searchMap;}
+
+    private final String getCommentsById = "touristicPlace/commentsByTouristicPlaceId";
+    public String getCommentsById() {return getCommentsById;}
+
+    private final String modifyComments = "touristicPlace/modifyCommentary";
+    public String modifyComments() {return modifyComments;}
 
     private final String testMaps = "touristicPlace/testMaps";
     public String testMaps() {return testMaps;}

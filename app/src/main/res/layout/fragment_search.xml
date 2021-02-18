@@ -36,6 +36,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="220dp"
+        android:text="@string/categoryString"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/provinceSearch"
         android:layout_width="128dp"
@@ -73,8 +83,8 @@
 
     <ListView
         android:id="@+id/searchList"
-        android:layout_width="358dp"
-        android:layout_height="366dp"
+        android:layout_width="352dp"
+        android:layout_height="340dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -140,5 +150,14 @@
         </com.google.android.material.chip.ChipGroup>
 
     </HorizontalScrollView>
+
+    <Spinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="164dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="220dp"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

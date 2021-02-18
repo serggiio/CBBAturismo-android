@@ -25,8 +25,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +56,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -87,6 +90,9 @@ public class SearchMapFragment extends Fragment {
     JSONObject mapsResponse;
     Boolean routeMarker = false;
     RecyclerView recyclerList;
+    JSONArray listCategory1;
+    List<String> listCategory = new ArrayList<String>();
+    Spinner spinerCategory;
 
     private apiService apiUtil = new apiService();
 
@@ -160,14 +166,39 @@ public class SearchMapFragment extends Fragment {
         mapDistance = view.findViewById(R.id.distanceMap);
         mapDistanceText = view.findViewById(R.id.textResultMap);
         searchButton = view.findViewById(R.id.btnSearchMap);
+        spinerCategory = view.findViewById(R.id.spinnerMap);
         mapDistance.setText("0");
 
         recyclerList = view.findViewById(R.id.listResultMap);
-
+        setCategoryList();
         listeners();
         //startAdapterService();
 
         return view;
+    }
+
+    private void setCategoryList(){
+        JSONObject categoryResponse = null;
+        try {
+            categoryResponse = new JSONObject(apiUtil.getCategoryList(new JSONObject()));
+            listCategory1 = categoryResponse.getJSONArray("data");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        listCategory.add("Seleccione una categoria");
+        for (int i=0; i<listCategory1.length(); i++) {
+            try {
+                listCategory.add( listCategory1.getString(i) );
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        ArrayAdapter<String> adapterCategory = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_dropdown_item, listCategory);
+        spinerCategory.setAdapter(adapterCategory);
+
     }
 
     private void startAdapterService(){
@@ -199,12 +230,20 @@ public class SearchMapFragment extends Fragment {
                 if(!mapDistance.getText().toString().equals("")){
                     int distance = Integer.parseInt(mapDistance.getText().toString());
                     Log.d(logSearchMap, "button lsitener " + distance);
+                    Log.d(logSearchMap, "button lsitener  SPINNER" + listCategory.get(spinerCategory.getSelectedItemPosition()));
 
                     //call service
 
                     JSONObject data = new JSONObject();
                     mapRequest = new JSONObject();
                     try {
+
+                        //Integer spinnerValue = spinerCategory.getSelectedItemPosition();
+
+                        if(!listCategory.get(spinerCategory.getSelectedItemPosition()).equals("Seleccione una categoria")){
+                            data.put("category", listCategory.get(spinerCategory.getSelectedItemPosition()));
+                        }
+
                         data.put("latitude", geoLat);
                         data.put("longitude", geoLon);
                         data.put("distance", distance);
@@ -216,7 +255,12 @@ public class SearchMapFragment extends Fragment {
                         adapterList = mapResponse.getJSONArray("data");
                         Log.d(logSearchMap, "response array " + adapterList);
                         mapDistanceText.setText("Resultados: " + adapterList.length());
+                        JSONObject resultJson = new JSONObject();
+                        resultJson.put("touristicPlaceId", "no data");
+                        resultJson.put("placeName", "Fin de los resultados");
+                        adapterList.put(resultJson);
 
+                        Log.d(logSearchMap, "request dataAAA " + adapterList);
                         addMarkers();
                         //adapterList = null;
                         //mainAdapter.notifyDataSetChanged();
@@ -327,9 +371,11 @@ public class SearchMapFragment extends Fragment {
         Log.d(logSearchMap, "List length: " + adapterList.length());
         for(int i = 0; i < adapterList.length(); i++){
             try {
-                LatLng tempMarker = new LatLng(adapterList.getJSONObject(i).getDouble("latitude"), adapterList.getJSONObject(i).getDouble("longitude"));
-                map.addMarker(new MarkerOptions().position(tempMarker).title(adapterList.getJSONObject(i).getString("placeName")).zIndex(i));
-                Log.d(logSearchMap, "marker added: " + adapterList.getJSONObject(i).getString("placeName"));
+                if(!adapterList.getJSONObject(i).getString("touristicPlaceId").equals("no data")){
+                    LatLng tempMarker = new LatLng(adapterList.getJSONObject(i).getDouble("latitude"), adapterList.getJSONObject(i).getDouble("longitude"));
+                    map.addMarker(new MarkerOptions().position(tempMarker).title(adapterList.getJSONObject(i).getString("placeName")).zIndex(i));
+                    Log.d(logSearchMap, "marker added: " + adapterList.getJSONObject(i).getString("placeName"));
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }

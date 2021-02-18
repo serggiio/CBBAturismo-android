@@ -27,6 +27,7 @@
     <string name="provinceString">Provincia</string>
     <string name="rateString">Puntuación: </string>
     <string name="tagString">Tag</string>
+    <string name="categoryString">Categoría</string>
     <string name="startString">Desde</string>
     <string name="endString">Hasta</string>
     <string name="placeString">Nombre</string>
