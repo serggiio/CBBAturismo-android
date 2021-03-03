@@ -25,6 +25,11 @@
             android:icon="@drawable/ic_icon_newuser"
             android:title="@string/menu_register" />
 
+        <item
+            android:id="@+id/frameLayout17"
+            android:icon="@drawable/ic_icon_newuser"
+            android:title="@string/menu_confirmation_code" />
+
 
     </group>
 </menu>

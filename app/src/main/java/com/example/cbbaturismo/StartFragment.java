@@ -94,7 +94,7 @@ public class StartFragment extends Fragment {
                              Bundle savedInstanceState) {
         controlPermissions(map);
         SharedPreferences preferences = this.getActivity().getSharedPreferences("userData", Context.MODE_PRIVATE);
-        Toast.makeText(getContext().getApplicationContext(), "!Preference DATA " + preferences.getString("userData", ""), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getContext().getApplicationContext(), "!Preference DATA " + preferences.getString("userData", ""), Toast.LENGTH_LONG).show();
         // Inflate the layout for this fragment
         final View vista = inflater.inflate(R.layout.fragment_start, container, false);
 

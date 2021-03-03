@@ -1,5 +1,6 @@
 package com.example.cbbaturismo.ui.login;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.annotation.NonNull;
@@ -42,6 +43,7 @@ public class LoginFragment extends Fragment {
     private JSONObject authenticateRequest = new JSONObject();
     private JSONObject authenticateResponse;
     NavigationView navigationView;
+    Toolbar toolbar;
     Menu navMenu;
 
     @Nullable
@@ -65,6 +67,9 @@ public class LoginFragment extends Fragment {
 
         navigationView = getActivity().findViewById(R.id.nav_view);
         navMenu = navigationView.getMenu();
+
+        toolbar = this.getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("");
 
 
         loginViewModel.getLoginFormState().observe(getViewLifecycleOwner(), new Observer<LoginFormState>() {
@@ -173,6 +178,7 @@ public class LoginFragment extends Fragment {
 
                             navMenu.findItem(R.id.loginFragment).setVisible(false);
                             navMenu.findItem(R.id.registerFragmentFragment).setVisible(false);
+                            navMenu.findItem(R.id.frameLayout17).setVisible(false);
 
                             navMenu.findItem(R.id.profileFragment).setVisible(true);
                             navMenu.findItem(R.id.favoriteFragment).setVisible(true);

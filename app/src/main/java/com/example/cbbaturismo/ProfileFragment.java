@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -59,6 +60,7 @@ public class ProfileFragment extends Fragment {
 
     NavigationView navigationView;
     Menu navMenu;
+    Toolbar toolbar;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -107,6 +109,9 @@ public class ProfileFragment extends Fragment {
 
         navigationView = getActivity().findViewById(R.id.nav_view);
         navMenu = navigationView.getMenu();
+
+        toolbar = this.getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("");
 
         SharedPreferences preferences = getActivity().getSharedPreferences("userData", Context.MODE_PRIVATE);
         Log.d(logProfile, "USER DATA" + preferences.getString("userData", ""));
@@ -214,6 +219,7 @@ public class ProfileFragment extends Fragment {
 
                     navMenu.findItem(R.id.loginFragment).setVisible(true);
                     navMenu.findItem(R.id.registerFragmentFragment).setVisible(true);
+                navMenu.findItem(R.id.frameLayout17).setVisible(true);
 
                     navMenu.findItem(R.id.profileFragment).setVisible(false);
                     navMenu.findItem(R.id.favoriteFragment).setVisible(false);

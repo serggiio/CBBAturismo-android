@@ -105,7 +105,7 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginBottom="6dp"
                     android:paddingBottom="10dp"
-                    android:text="Direccion"
+                    android:text="@string/detail_address"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -133,7 +133,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
                 android:paddingBottom="10dp"
-                android:text="Historia"
+                android:text="@string/detail_history"
                 android:textColor="@color/cardview_dark_background"
                 android:textSize="18sp"
                 android:textStyle="bold" />

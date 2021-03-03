@@ -51,13 +51,14 @@ public class MainActivity extends AppCompatActivity {
         }else{
             navMenu.findItem(R.id.loginFragment).setVisible(false);
             navMenu.findItem(R.id.registerFragmentFragment).setVisible(false);
+            navMenu.findItem(R.id.frameLayout17).setVisible(false);
         }
 
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.ConstraintLayout, R.id.profileFragment, R.id.favoriteFragment)
+                R.id.ConstraintLayout, R.id.profileFragment, R.id.favoriteFragment, R.id.frameLayout17)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

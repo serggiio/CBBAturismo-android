@@ -2,6 +2,7 @@ package com.example.cbbaturismo;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.text.method.HideReturnsTransformationMethod;
@@ -54,6 +55,7 @@ public class RegisterFragmentFragment extends Fragment {
     JSONObject requestSave = new JSONObject();
     JSONObject apiResponse;
     View viewController;
+    Toolbar toolbar;
 
     public RegisterFragmentFragment() {
         // Required empty public constructor
@@ -100,6 +102,8 @@ public class RegisterFragmentFragment extends Fragment {
         textAlert = view.findViewById(R.id.registerAlertText);
         saveButton = view.findViewById(R.id.registerButton);
 
+        toolbar = this.getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("");
 
         eventListeners();
 

@@ -104,4 +104,9 @@
         android:name="com.example.cbbaturismo.SearchMapFragment"
         android:label="fragment_search_map"
         tools:layout="@layout/fragment_search_map" />
+    <fragment
+        android:id="@+id/frameLayout17"
+        android:name="com.example.cbbaturismo.CodeFragment"
+        android:label="fragment_code"
+        tools:layout="@layout/fragment_code" />
 </navigation>

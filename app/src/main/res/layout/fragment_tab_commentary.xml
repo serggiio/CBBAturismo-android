@@ -24,7 +24,7 @@
         android:layout_height="46dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Escribe un comentario"
+        android:hint="@string/detail_comment"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

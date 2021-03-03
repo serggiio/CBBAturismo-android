@@ -14,13 +14,25 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="my_rate">My puntuación</string>
 
+    <!-- main menu strings -->
+    <string name="menu_map">Mapa</string>
+    <string name="menu_list">Lista</string>
+    <string name="menu_search">Búsqueda</string>
+    <string name="menu_location">Ubicación</string>
+
     <!-- navigationDraver strings -->
     <string name="menu_profile">Perfil</string>
     <string name="menu_favorite">Favoritos</string>
     <string name="menu_logout">Salir</string>
     <string name="menu_login">Iniciar sesion</string>
     <string name="menu_register">Registrate</string>
+    <string name="menu_confirmation_code">Código de confirmación</string>
     <string name="menu_share">Compartir</string>
+
+    <!-- Detail fragment strings -->
+    <string name="detail_address">Dirección</string>
+    <string name="detail_history">Historia</string>
+    <string name="detail_comment">Escribe un comentario</string>
 
     <!-- Search form strings -->
     <string name="typeString">Lugar / Evento</string>
@@ -34,19 +46,21 @@
 
     <string name="dialogGoTo">Visitar</string>
 
+    <string name="select_category">Seleccione una categoría</string>
+
     <!-- TOAST PERMISIONS MAP -->
     <string name="location_permission_denied">PERMISO DENEGADO PAPU</string>
     <string name="permission_required_toast">PERMISO REQUERIDO PAPS</string>
     <string name="permission_rationale_location">permission_rationale_location</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="prompt_email">Correo</string>
+    <string name="prompt_password">Contraseña</string>
     <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_in_short">Siguiente</string>
     <string name="welcome">"Bienvenido!"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="invalid_username">Nombre de usuario incorrecto</string>
+    <string name="invalid_password">Contraseña debe ser mayor a 5 caracteres</string>
+    <string name="login_failed">"Login Fallo"</string>
     <string name="noData">"Nombre de usuario o contraseña invalidos"</string>
     <string name="error">"Error interno, vuelva a intentarlo"</string>
 
@@ -68,6 +82,7 @@
     <string name="registerInvalidName">Campo nombre invalido </string>
     <string name="registerInvalidLastName">Campo apellido invalido</string>
     <string name="verificationInvalidCode">Codigo invalido</string>
+    <string name="verificationInvalidCode1">Codigo o correo invalido</string>
     <string name="registerInvalidEmail">Campo correo invalido</string>
     <string name="registerInvalidPassword">Contraseña minimo 5 caracteres</string>
     <string name="registerInvalidEmailResponse">El correo ya esta en uso</string>

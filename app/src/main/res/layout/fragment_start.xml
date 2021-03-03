@@ -35,8 +35,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:textSize="18sp"
-                android:text="Mapa"/>
+                android:text="@string/menu_map"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -70,8 +70,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:textSize="18sp"
-                android:text="Lista Lugares"/>
+                android:text="@string/menu_list"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -105,8 +105,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:textSize="18sp"
-                android:text="Busqueda"/>
+                android:text="@string/menu_search"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -140,8 +140,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:textSize="18sp"
-                android:text="Ubicación"/>
+                android:text="@string/menu_location"
+                android:textSize="18sp" />
 
         </LinearLayout>
 

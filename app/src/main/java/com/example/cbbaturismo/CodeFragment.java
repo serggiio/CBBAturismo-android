@@ -26,10 +26,10 @@ import static androidx.navigation.Navigation.findNavController;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link VerificationCodeFragment#newInstance} factory method to
+ * Use the {@link CodeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class VerificationCodeFragment extends Fragment {
+public class CodeFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,18 +39,19 @@ public class VerificationCodeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
     String email;
     private apiService apiUtil = new apiService();
     private String logVerification = "FRAGMENT VERIFICATION ";
 
-    EditText textCode;
-    TextView textEmail, textMessage;
+    EditText textCode, textEmail;
+    TextView  textMessage;
     Button saveButton;
     NavigationView navigationView;
     Menu navMenu;
     Toolbar toolbar;
 
-    public VerificationCodeFragment() {
+    public CodeFragment() {
         // Required empty public constructor
     }
 
@@ -60,11 +61,11 @@ public class VerificationCodeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment VerificationCodeFragment.
+     * @return A new instance of fragment CodeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static VerificationCodeFragment newInstance(String param1, String param2) {
-        VerificationCodeFragment fragment = new VerificationCodeFragment();
+    public static CodeFragment newInstance(String param1, String param2) {
+        CodeFragment fragment = new CodeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -78,7 +79,6 @@ public class VerificationCodeFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            email = getArguments().getString("email");
         }
     }
 
@@ -86,18 +86,15 @@ public class VerificationCodeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_verification_code, container, false);
+        View view = inflater.inflate(R.layout.fragment_code, container, false);
 
-
-        textCode = view.findViewById(R.id.verificationCode);
-        textEmail = view.findViewById(R.id.verificationEmail);
-        textMessage = view.findViewById(R.id.verificationMessage);
-        saveButton = view.findViewById(R.id.verificationButton);
+        textEmail = view.findViewById(R.id.codeEmail);
+        textCode = view.findViewById(R.id.codeText);
+        textMessage = view.findViewById(R.id.messageTextView);
+        saveButton = view.findViewById(R.id.codeSentBtn);
 
         navigationView = getActivity().findViewById(R.id.nav_view);
         navMenu = navigationView.getMenu();
-
-        textEmail.setText(email);
 
         toolbar = this.getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle("");
@@ -105,8 +102,8 @@ public class VerificationCodeFragment extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(String.valueOf(textCode.getText()).isEmpty()){
-                    textCode.setError(getResources().getString(R.string.verificationInvalidCode));
+                if(String.valueOf(textCode.getText()).isEmpty() || String.valueOf(textEmail.getText()).isEmpty()){
+                    textCode.setError(getResources().getString(R.string.verificationInvalidCode1));
                 }else{
 
                     try {
@@ -121,7 +118,7 @@ public class VerificationCodeFragment extends Fragment {
 
 
 
-        return view;
+        return  view;
     }
 
     public void verificateCode() throws JSONException {
@@ -129,7 +126,7 @@ public class VerificationCodeFragment extends Fragment {
         JSONObject verificationRequest = new JSONObject();
         JSONObject verificationResponse;
 
-        verificationRequest.put("email", email);
+        verificationRequest.put("email", String.valueOf(textEmail.getText()));
         verificationRequest.put("verificationCode", String.valueOf(textCode.getText()));
 
         verificationResponse = new JSONObject(apiUtil.verificateUserCode(verificationRequest));
@@ -150,6 +147,7 @@ public class VerificationCodeFragment extends Fragment {
 
             navMenu.findItem(R.id.loginFragment).setVisible(false);
             navMenu.findItem(R.id.registerFragmentFragment).setVisible(false);
+            navMenu.findItem(R.id.frameLayout17).setVisible(false);
 
             navMenu.findItem(R.id.profileFragment).setVisible(true);
             navMenu.findItem(R.id.favoriteFragment).setVisible(true);
