@@ -58,5 +58,7 @@ dependencies {
     // Alternately - Utilities for Maps SDK v3 BETA for Android (does not require Google Play Services)
     //implementation 'com.google.maps.android:android-maps-utils-v3:2.2.0'
 
+    //Diagonal layout
+    implementation 'com.github.florent37:diagonallayout:1.0.9'
 
 }

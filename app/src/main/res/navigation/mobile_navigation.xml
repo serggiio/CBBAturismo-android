@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/ConstraintLayout">
+    app:startDestination="@id/newHomeFragment">
 
     <fragment
         android:id="@+id/nav_home"
@@ -109,4 +109,14 @@
         android:name="com.example.cbbaturismo.CodeFragment"
         android:label="fragment_code"
         tools:layout="@layout/fragment_code" />
+    <fragment
+        android:id="@+id/newHomeFragment"
+        android:name="com.example.cbbaturismo.newHomeFragment"
+        android:label="fragment_new_home"
+        tools:layout="@layout/fragment_new_home" />
+    <fragment
+        android:id="@+id/newStartFragment"
+        android:name="com.example.cbbaturismo.newStartFragment"
+        android:label="fragment_new_start"
+        tools:layout="@layout/fragment_new_start" />
 </navigation>

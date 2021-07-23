@@ -12,6 +12,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -93,6 +94,7 @@ public class SearchMapFragment extends Fragment {
     JSONArray listCategory1;
     List<String> listCategory = new ArrayList<String>();
     Spinner spinerCategory;
+    Toolbar toolbar;
 
     private apiService apiUtil = new apiService();
 
@@ -168,6 +170,9 @@ public class SearchMapFragment extends Fragment {
         searchButton = view.findViewById(R.id.btnSearchMap);
         spinerCategory = view.findViewById(R.id.spinnerMap);
         mapDistance.setText("0");
+
+        toolbar = this.getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("");
 
         recyclerList = view.findViewById(R.id.listResultMap);
         setCategoryList();

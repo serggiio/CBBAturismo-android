@@ -45,7 +45,7 @@
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="291dp"
+        android:layout_width="match_parent"
         android:layout_height="404dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,8 +60,8 @@
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/image_slider"
-                android:layout_width="198dp"
-                android:layout_height="205dp"
+                android:layout_width="match_parent"
+                android:layout_height="215dp"
                 android:layout_marginTop="4dp"
                 app:iss_auto_cycle="true"
                 app:iss_corner_radius="20"

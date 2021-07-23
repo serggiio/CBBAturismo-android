@@ -2,7 +2,7 @@ package com.example.cbbaturismo.commonService;
 
 public class constantValues {
     //url base for api call service
-    private final String apiUrl = "http://192.168.0.13/turismo/public/api/";
+    private final String apiUrl = "http://192.168.0.3/turismo/public/api/";
     public String getApiUrl() {return apiUrl;}
 
     private final String googleMapsUrl = "https://maps.googleapis.com/maps/api/directions/json?";
